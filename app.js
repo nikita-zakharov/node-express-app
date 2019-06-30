@@ -1,5 +1,5 @@
 const path = require('path');
-
+const port = process.env.PORT || 3000
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoConnect = require('./util/database').mongoConnect
@@ -31,5 +31,5 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 mongoConnect(() => {
-  app.listen(3000)
+  app.listen(port)
 })
